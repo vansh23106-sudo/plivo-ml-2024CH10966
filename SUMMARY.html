@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LLM Speedrun Summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; line-height: 1.6; }
+    h1, h2 { color: #1f2937; }
+    code { background: #f3f4f6; padding: 2px 4px; }
+    .card { border: 1px solid #d1d5db; border-radius: 8px; padding: 16px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h1>LLM Speedrun Summary</h1>
+  <div class="card">
+    <h2>What was changed</h2>
+    <p>The final submission keeps the starter byte-level GPT architecture and improves the training recipe rather than increasing model size. The main changes were a stronger optimizer, a warmup-and-decay schedule, and gradient clipping.</p>
+    <p><strong>Best verified result:</strong> dev <code>bpb = 2.2130</code> on the provided evaluation set with the final checkpoint.</p>
+  </div>
+  <div class="card">
+    <h2>Why this is likely the best choice</h2>
+    <p>The baseline score was <code>2.3718</code>. The tuned optimizer/scheduler run improved it to <code>2.2130</code>, which is a clear win within the same 2,000-step budget. The model remains small and CPU-friendly, which matters under the hard parameter and runtime constraints.</p>
+  </div>
+  <div class="card">
+    <h2>Human vs machine contribution</h2>
+    <p>Machine-generated work: the baseline experiments, repeated training/evaluation runs, and loss curve measurement. Human-made work: selecting the one hypothesis that matched the evidence, documenting the run log, and keeping the final setup minimal and robust.</p>
+  </div>
+  <div class="card">
+    <h2>Documents</h2>
+    <p>The full run history is in <a href="RUNLOG.md">RUNLOG.md</a>, the concise configuration note is in <a href="NOTES.md">NOTES.md</a>, and the model layout is summarized in <a href="nodes.md">nodes.md</a>.</p>
+  </div>
+</body>
+</html>
